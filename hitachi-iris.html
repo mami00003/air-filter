@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日立とアイリスオーヤマの交換フィルター</title>
+<meta name="description" content="日立は同じ日立でも、機種によって脱臭フィルターの水洗い可否が逆です。アイリスオーヤマは同社内で交換目安が2年と10年で混在しています。どちらも本体型番で分けないと間違えます。">
+<link rel="canonical" href="https://mami00003.github.io/air-filter/hitachi-iris.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日立とアイリスオーヤマの交換フィルター">
+<meta property="og:description" content="日立は同じ日立でも、機種によって脱臭フィルターの水洗い可否が逆です。アイリスオーヤマは同社内で交換目安が2年と10年で混在しています。どちらも本体型番で分けないと間違えます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto+Mono:wght@500;700&display=swap">
+<style>
+
+:root{
+  --ground:#f4f6f8; --surface:#ffffff; --raise:#eceff3; --sunk:#e3e8ed;
+  --ink:#141a21; --ink2:#4a5866; --ink3:#7d8b99;
+  --line:#dbe2e9; --line2:#c3ced9;
+  --accent:#a8650a; --accent-soft:#fbf0dd;
+  --ok:#1a7a53; --ok-soft:#e0f2ea;
+  --warn:#a8650a; --warn-soft:#fbf0dd;
+  --bad:#ad3729; --bad-soft:#fbe6e2;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",Meiryo,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0e1216; --surface:#161c22; --raise:#1e262d; --sunk:#0a0e11;
+    --ink:#e7eef4; --ink2:#a0b0bd; --ink3:#6d7d8a;
+    --line:#26303a; --line2:#35424e;
+    --accent:#f0a63c; --accent-soft:#2a2013;
+    --ok:#4cc08a; --ok-soft:#10291f;
+    --warn:#f0a63c; --warn-soft:#2a2013;
+    --bad:#f07a68; --bad-soft:#2e1714;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0e1216; --surface:#161c22; --raise:#1e262d; --sunk:#0a0e11;
+  --ink:#e7eef4; --ink2:#a0b0bd; --ink3:#6d7d8a;
+  --line:#26303a; --line2:#35424e;
+  --accent:#f0a63c; --accent-soft:#2a2013;
+  --ok:#4cc08a; --ok-soft:#10291f;
+  --warn:#f0a63c; --warn-soft:#2a2013;
+  --bad:#f07a68; --bad-soft:#2e1714;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:15px; line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:820px; margin:0 auto; padding-inline:18px; padding-block:0 56px}
+h1,h2,h3{margin:0; text-wrap:balance}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+a{color:var(--accent)}
+
+.label{
+  font-family:var(--mono); font-size:11px; font-weight:500;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--ink3);
+}
+
+/* 広告表記 */
+.ad-note{background:var(--raise); border-bottom:1px solid var(--line); font-size:12.5px; color:var(--ink2)}
+.ad-note div{max-width:820px; margin:0 auto; padding:9px 18px}
+
+/* header */
+header{padding-block:38px 26px}
+h1{font-size:clamp(25px,5.2vw,34px); font-weight:700; letter-spacing:-.01em; line-height:1.35}
+header p{margin:12px 0 0; color:var(--ink2); max-width:56ch; font-size:14.5px}
+
+/* 入力 */
+.panel{
+  background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:22px; display:grid; gap:22px; grid-template-columns:1fr 1fr;
+}
+.field{display:flex; flex-direction:column; gap:8px; min-width:0}
+.field.wide{grid-column:1 / -1}
+.seg{display:flex; flex-wrap:wrap; gap:6px}
+.seg button{
+  font:inherit; font-size:13.5px; font-weight:500; cursor:pointer;
+  padding:6px 13px; border-radius:6px; background:var(--raise);
+  color:var(--ink2); border:1px solid transparent; transition:.14s;
+}
+.seg button:hover{color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--ink); color:var(--surface); border-color:var(--ink)}
+.spd{display:flex; align-items:baseline; gap:9px}
+.spd output{font-family:var(--mono); font-weight:700; font-size:21px; font-variant-numeric:tabular-nums}
+.spd span{font-size:12.5px; color:var(--ink3)}
+input[type=range]{width:100%; accent-color:var(--accent); margin:0}
+
+/* メーター（ヒーロー） */
+.meter{
+  margin-top:18px; background:var(--surface); border:1px solid var(--line);
+  border-radius:10px; overflow:hidden;
+}
+.meter-head{
+  padding:20px 22px 16px; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  border-bottom:1px solid var(--line);
+}
+.big{
+  font-family:var(--mono); font-weight:700; font-size:clamp(34px,7vw,46px);
+  line-height:1; letter-spacing:-.02em; font-variant-numeric:tabular-nums; color:var(--accent);
+}
+.big small{font-size:.38em; letter-spacing:.04em; margin-left:5px; color:var(--ink2)}
+.verdict{
+  font-size:13px; font-weight:700; padding:4px 11px; border-radius:999px; white-space:nowrap;
+}
+.v-ok{background:var(--ok-soft); color:var(--ok)}
+.v-warn{background:var(--warn-soft); color:var(--warn)}
+.v-bad{background:var(--bad-soft); color:var(--bad)}
+.meter-body{padding:20px 22px 22px; display:flex; flex-direction:column; gap:14px}
+.bar{
+  position:relative; height:26px; border-radius:5px; background:var(--sunk);
+  border:1px solid var(--line); overflow:hidden;
+}
+.bar .fill{position:absolute; inset:0 auto 0 0; border-radius:4px 0 0 4px; transition:width .25s ease, background .25s}
+.bar .safe{
+  position:absolute; top:-1px; bottom:-1px; width:2px; background:var(--ink2);
+}
+.scale{display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink3); font-variant-numeric:tabular-nums}
+.meter-body p{margin:0; font-size:14px; color:var(--ink2)}
+.meter-body p b{color:var(--ink)}
+
+/* 設定表 */
+section{margin-top:44px}
+h2{font-size:19px; font-weight:700; letter-spacing:-.005em}
+.lede{color:var(--ink2); margin:8px 0 0; font-size:14px; max-width:60ch}
+.tabs{display:flex; flex-direction:column; gap:20px; margin-top:20px}
+.tab{background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden}
+.tab-h{
+  padding:11px 18px; background:var(--raise); border-bottom:1px solid var(--line);
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+}
+.tab-h .label{color:var(--ink2)}
+.rows{display:flex; flex-direction:column}
+.row{
+  display:grid; grid-template-columns:max-content minmax(0,1fr); gap:10px 18px;
+  align-items:baseline; padding:11px 18px; border-top:1px solid var(--line);
+}
+.rows .row:first-child{border-top:0}
+.row dt{font-size:14px; color:var(--ink2); margin:0}
+.row dd{
+  margin:0; font-family:var(--mono); font-weight:700; font-size:14.5px;
+  color:var(--ink); font-variant-numeric:tabular-nums; text-align:right; word-break:break-word;
+}
+.row .note{display:block; font-family:var(--sans); font-weight:400; font-size:12px; color:var(--ink3); margin-top:2px}
+
+/* 原因リスト */
+.causes{display:flex; flex-direction:column; gap:0; margin-top:16px}
+.cause{display:grid; grid-template-columns:minmax(0,148px) 1fr; gap:6px 20px; padding:15px 0; border-top:1px solid var(--line)}
+.cause dt{font-family:var(--mono); font-size:12.5px; font-weight:700; color:var(--accent); letter-spacing:.02em; padding-top:3px}
+.cause dd{margin:0; font-size:14px; color:var(--ink2)}
+.cause dd b{color:var(--ink)}
+
+/* 広告カード */
+.tools{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; margin-top:20px}
+.tool{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:17px 18px; display:flex; flex-direction:column; gap:10px}
+.tool h3{font-size:16px; font-weight:700}
+.tool p{margin:0; font-size:13.5px; color:var(--ink2); flex:1}
+.tool a, .tool span.cta{
+  display:block; text-align:center; text-decoration:none; font-size:14px; font-weight:700;
+  padding:9px 14px; border-radius:7px; background:var(--ink); color:var(--surface);
+}
+.tool span.cta{background:var(--raise); color:var(--ink3); border:1px dashed var(--line2); font-weight:500}
+.todo{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--warn); border:1px solid var(--warn); border-radius:4px; padding:1px 7px; align-self:flex-start}
+
+footer{margin-top:44px; padding-top:18px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink3); line-height:1.75}
+footer a{color:var(--ink2)}
+
+@media (max-width:560px){
+  .panel{grid-template-columns:1fr; gap:18px; padding:18px}
+  .cause{grid-template-columns:1fr; gap:2px}
+  .row{grid-template-columns:1fr; gap:2px}
+  .row dd{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.count{margin-top:18px; font-family:var(--mono); font-size:12px; letter-spacing:.08em; color:var(--ink3)}
+.res{display:flex; flex-direction:column; gap:12px; margin-top:12px}
+.pack{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 18px; display:flex; flex-direction:column; gap:8px}
+.pack .no{font-family:var(--mono); font-weight:700; font-size:20px; letter-spacing:.01em; color:var(--accent)}
+.pack .nm{font-size:15px; font-weight:700; line-height:1.5}
+.pack p{margin:0; font-size:14px; color:var(--ink2)}
+.pack p b{color:var(--ink)}
+.buys{display:flex; flex-wrap:wrap; gap:8px}
+.pack a.buy{
+  display:inline-block; text-decoration:none;
+  font-size:13.5px; font-weight:700; padding:8px 14px; border-radius:7px;
+  background:var(--ink); color:var(--surface);
+}
+.pack a.buy.az{background:transparent; color:var(--ink); border:1px solid var(--ink)}
+.pack .adlabel{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--ink3)}
+.pack .nofound{font-size:13px; color:var(--ink2); background:var(--raise); border:1px dashed var(--line2); border-radius:7px; padding:10px 12px; margin:0}
+.src{font-size:12px; color:var(--ink3)}
+.src a{color:var(--ink2)}
+.empty{background:var(--surface); border:1px dashed var(--line2); border-radius:10px; padding:20px; color:var(--ink2); font-size:14px}
+.warnbox{background:var(--bad-soft); border:1px solid var(--bad); border-radius:10px; padding:16px 18px; margin-top:18px}
+.warnbox p{margin:0; font-size:14px; color:var(--ink)}
+.warnbox .label{color:var(--bad)}
+input[type=text]{
+  font:inherit; font-size:15px; width:100%; padding:9px 12px; border-radius:7px;
+  border:1px solid var(--line2); background:var(--surface); color:var(--ink);
+}
+.quotes{display:flex; flex-direction:column; gap:14px; margin-top:18px}
+.quote{background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--ink2); border-radius:0 10px 10px 0; padding:14px 18px}
+.quote .who{font-size:12.5px; font-weight:700; color:var(--ink); margin-bottom:6px}
+.quote blockquote{margin:0; font-size:14px; color:var(--ink2); line-height:1.8}
+.old{width:100%; border-collapse:collapse; margin-top:16px; font-size:14px}
+.old th,.old td{border-bottom:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top}
+.old th{font-size:12px; letter-spacing:.06em; color:var(--ink3); font-weight:500; white-space:nowrap}
+.old td:first-child{font-family:var(--mono); color:var(--ink2); word-break:break-word}
+.old td:last-child{font-family:var(--mono); font-weight:700; color:var(--accent); white-space:nowrap}
+.wrap{overflow-x:auto}
+.old th[scope=row]{font-family:var(--mono); font-weight:700; color:var(--accent); white-space:nowrap; font-size:13px; letter-spacing:0}
+.old.list td:first-child,.old.list td:last-child{font-family:inherit; color:inherit; font-weight:400; white-space:normal}
+.old .buycell{white-space:nowrap}
+.old .buycell a{color:var(--ink); font-weight:700}
+.old .na{color:var(--ink3)}
+.old small{color:var(--ink3); font-size:12px}
+.makerblocks{display:flex; flex-direction:column; gap:16px; margin-top:16px}
+.makerblock{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 18px}
+.makerblock h3{font-size:15px; font-weight:700; margin:0 0 6px}
+.makerblock p.how{margin:0 0 8px; font-size:14px; color:var(--ink2)}
+.makerblock ul{margin:0; padding-left:18px; font-size:14px; color:var(--ink2); line-height:1.9}
+.makerblock code{font-family:var(--mono); font-weight:700; color:var(--accent)}
+.makerblock small{color:var(--ink3); font-size:12.5px}
+.stamp{font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--ink3)}
+
+:root{--accent:#1f6b3a; --accent-soft:#e4f2e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#5fc07e; --accent-soft:#10261a}}
+:root[data-theme="dark"]{--accent:#5fc07e; --accent-soft:#10261a}
+.srch{margin-top:16px}
+.srch label{display:block; font-size:13px; color:var(--ink2); margin-bottom:6px}
+.hit{font-family:var(--mono); font-size:12px; color:var(--ink3); margin-top:8px; letter-spacing:.06em}
+.old tr[hidden]{display:none}
+mark{background:var(--accent-soft); color:var(--ink); border-radius:2px; padding:0 1px}
+.cmp{width:100%; border-collapse:collapse; margin-top:16px; font-size:13.5px}
+.cmp th,.cmp td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top}
+.cmp thead th{background:var(--raise); font-size:12px; color:var(--ink2); font-weight:700; white-space:nowrap}
+.cmp td b{color:var(--ink)}
+.oem{display:flex; flex-direction:column; gap:12px; margin-top:16px}
+.oemcard{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:15px 18px}
+.oemcard h3{font-size:14.5px; font-weight:700; margin:0 0 6px; font-family:var(--mono); color:var(--accent)}
+.oemcard p{margin:0; font-size:14px; color:var(--ink2)}
+.oemcard p + p{margin-top:7px}
+.flow{font-family:var(--mono); font-size:13px; color:var(--ink); background:var(--raise); border-radius:6px; padding:8px 11px; margin-top:8px; overflow-x:auto; white-space:nowrap}
+.pill{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.06em; padding:2px 8px; border-radius:999px; background:var(--raise); color:var(--ink2); border:1px solid var(--line)}
+.toc{margin-top:22px; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px 18px}
+.toc ol{margin:0; padding-left:20px; font-size:14px; line-height:1.95; color:var(--ink2)}
+.toc a{color:var(--ink2)}
+.wrap.bleed{margin-inline:0}
+@media (min-width:1120px){.wrap.bleed{margin-inline:-130px}}
+.old td.nw, .old th.nw{white-space:nowrap}
+.keyfacts{margin-top:20px; display:flex; flex-direction:column; gap:0}
+.keyfacts > div{display:grid; grid-template-columns:26px minmax(0,1fr); gap:10px; padding:12px 0; border-top:1px solid var(--line); font-size:14.5px; color:var(--ink2); align-items:start}
+.keyfacts > div:first-child{border-top:0}
+.keyfacts > div > span{font-family:var(--mono); font-weight:700; color:var(--accent); line-height:1.8}
+.keyfacts > div > p{margin:0; min-width:0}
+.keyfacts b{color:var(--ink)}
+
+.toc{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.toc ul{margin:0;padding-left:20px;line-height:1.95;font-size:14px;color:var(--ink2)}
+.toc a{color:var(--ink2)}
+.crumb{font-size:13px;color:var(--ink3);margin:0 0 6px}
+.crumb a{color:var(--ink2)}
+.block{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-top:16px}
+.block ul{margin:0;padding-left:18px;font-size:14.5px;color:var(--ink2);line-height:1.95}
+.block code{font-family:var(--mono);font-weight:700;color:var(--accent)}
+.block small{color:var(--ink3);font-size:12.5px}
+.block p{margin:0 0 8px;font-size:14.5px;color:var(--ink2)}
+.block p:last-child{margin-bottom:0}
+.block b{color:var(--ink)}
+
+</style>
+</head>
+<body>
+<div class="ad-note"><div>このページには広告（アフィリエイトリンク）が含まれます。型番・適合・価格・注意文はすべてメーカー公式の記載から取っています。</div></div>
+<div class="page">
+<header>
+  <p class="crumb"><a href="/air-filter/">空気清浄機フィルター逆引き</a> ／ 日立／アイリスオーヤマ</p>
+  <h1>日立とアイリスオーヤマの交換フィルター</h1>
+  <p>日立は同じ日立でも、機種によって脱臭フィルターの水洗い可否が逆です。アイリスオーヤマは同社内で交換目安が2年と10年で混在しています。どちらも本体型番で分けないと間違えます。</p>
+</header>
+
+<section><h2>日立は、同じ日立の中で書いてあることが逆</h2>
+<div class="oem"><div class="oemcard"><h3>日立 ― 同じメーカーの中で逆</h3><p><b>EP-KVG900／EP-MVG90 系</b>の脱臭フィルターは、取扱説明書に「水またはぬるま湯(約40℃以下)に約3時間程度つけおき洗いをします」と書かれています。仕様表の名称も「洗える脱臭フィルター」です。</p><p>ところが<b>EP-EV65 系</b>の取扱説明書は「フィルターは洗っても再使用できません。新しいフィルターをお買い求めのうえ交換してください。」です（集じんフィルターと脱臭フィルターの両方にかかる共通の注意として書かれています）。</p><p><b>「日立だから洗える」は成り立ちません。</b>自分の本体型番の取扱説明書で確認してください。</p><p class="src"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-kvg900_c.pdf" target="_blank" rel="noopener">EP-KVG900 系（つけおき可）</a>　<a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-ev65_b.pdf" target="_blank" rel="noopener">EP-EV65 系（不可）</a></p></div></div>
+<p class="lede" style="margin-top:14px">加湿フィルターの交換目安も機種で大きく違います。EP-KVG900 は「約120ヶ月(約1ヶ月に1回以上、お手入れが必要です)」、EP-EV65 は「36ヶ月」。<b>10年と3年で3倍以上</b>です。どちらも「お手入れをした場合」が前提になっています。</p>
+</section>
+<section><h2>アイリスオーヤマは同社内で2年と10年が混在</h2>
+<p class="lede">脱臭フィルターの交換目安が、FLS-S20B などは「約2年に1回」、FLD-AH50A は「約10年に1回」。どちらにも「使いかた、設置場所により異なります。気になる場合は交換してください」と付いています。</p>
+<div class="block"><p><b>対応機種が「他」で終わっているものが多い。</b>公式の表記自体が「AAP-S20B、AAP-SH20A、<b>他</b>」という書き方なので、対応機種の一覧は完全ではありません。このサイトも公式どおりに載せています。</p>
+<p>価格も公式の商品ページには載りません。取れたのは PMAC-100HF の1件だけです（アイリスプラザ側）。</p></div>
+</section>
+<section><h2>本体品番から引く（18件）</h2><div class="wrap bleed"><table class="old"><thead><tr><th scope="col">本体の品番</th><th scope="col">メーカー</th><th scope="col">必要なフィルター</th><th scope="col">出典</th></tr></thead><tbody>
+        <tr><th scope="row">EP-EV65</th><td>日立</td><td>EPF-DV1000H（集じん）, EPF-DV1000D（脱臭）, EPF-EV65KF（加湿）, EP-DV1000-002（プレ）</td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-ev65_b.pdf" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">EP-KVG900</th><td>日立</td><td>EPF-KVG900D（脱臭）, EPF-KVG900KF（加湿）, EP-KVG900-042（プレ）, EP-KVG900-039（水タンク） ※集じんの単品型番は取説に明記なし</td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-kvg900_c.pdf" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">EP-MVG90</th><td>日立</td><td>EPF-MVG90H（集じん） ※脱臭・加湿の型番は未確認</td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/airclean/lineup/ep-mvg110/" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">AAP-AH50A</th><td>アイリスオーヤマ</td><td>FLS-AH50A（集じん）, FLD-AH50A（脱臭）, FLH-AH50A（加湿）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-dust-collector-filter/" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">KAP-AH501</th><td>アイリスオーヤマ</td><td>FLS-AH50A（集じん）, FLD-AH50A（脱臭）, FLH-AH50A（加湿）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-dust-collector-filter/" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">AAP-SH30A</th><td>アイリスオーヤマ</td><td>FLS-S30B または FLS-S302（脱臭）, FLH-SH30（加湿）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-dust-collector-filter/" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">KAP-SH301</th><td>アイリスオーヤマ</td><td>FLS-S30B または FLS-S302（脱臭）, FLH-SH30（加湿）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-dust-collector-filter/" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">AAP-SH20A</th><td>アイリスオーヤマ</td><td>FLS-S20B または FLS-S202（脱臭）, FLH-SH20（加湿）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-dust-collector-filter/" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">KAP-SH201</th><td>アイリスオーヤマ</td><td>FLS-S20B または FLS-S202（脱臭）, FLH-SH20（加湿）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-dust-collector-filter/" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">HXF-A25</th><td>アイリスオーヤマ</td><td>HXF-A25HF（集じん）, HXF-A25TF（活性炭/脱臭）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-dust-collector-filter/" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">HXF-B40</th><td>アイリスオーヤマ</td><td>RHF-401HF（集じん）, RHF-401TF（活性炭/脱臭）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-dust-collector-filter/" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">PMMS-AC100</th><td>アイリスオーヤマ</td><td>PMAC-100HF（集じん）＋ IA-300TF / IA-300PF / IA-300GF（活性炭いずれか1枚）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">PMMS-DC100</th><td>アイリスオーヤマ</td><td>PMMS-DCHF（集じん）, PMMS-DCTF（活性炭）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">IAP-A25</th><td>アイリスオーヤマ</td><td>IAP-A25FL / A35FL / A85FL / A100FL / A110FL（いずれも一体型1枚）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">A35</th><td>アイリスオーヤマ</td><td>IAP-A25FL / A35FL / A85FL / A100FL / A110FL（いずれも一体型1枚）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">A85</th><td>アイリスオーヤマ</td><td>IAP-A25FL / A35FL / A85FL / A100FL / A110FL（いずれも一体型1枚）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">A100</th><td>アイリスオーヤマ</td><td>IAP-A25FL / A35FL / A85FL / A100FL / A110FL（いずれも一体型1枚）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td></tr>
+        <tr><th scope="row">A110</th><td>アイリスオーヤマ</td><td>IAP-A25FL / A35FL / A85FL / A100FL / A110FL（いずれも一体型1枚）</td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td></tr>
+      </tbody></table></div></section>
+<section><h2>日立・アイリスオーヤマの交換フィルター（40件）</h2><div class="wrap bleed"><table class="old"><thead><tr><th scope="col">品番</th><th scope="col">メーカー</th><th scope="col">種類</th><th scope="col">名称・対応機種</th><th scope="col">交換めやす</th><th scope="col">水洗い</th><th scope="col">価格</th><th scope="col">出典</th><th scope="col">買う</th></tr></thead><tbody>
+        <tr><th scope="row">EPF-DV1000H</th><td>日立</td><td>集じん</td><td>日立空気清浄機用集じんフィルター<br><small>対応：EP-EV65</small></td><td>約8年（JEM1467試験、1日タバコ5本）</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-ev65_b.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EPF-DV1000H/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">EPF-DV1000D</th><td>日立</td><td>脱臭</td><td>日立空気清浄機用脱臭フィルター（ナノパワーダッシュウ）<br><small>対応：EP-EV65</small></td><td>約10年</td><td><span class="na">—</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-ev65_b.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EPF-DV1000D/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">EPF-EV65KF</th><td>日立</td><td>加湿</td><td>日立空気清浄機用 交換用加湿フィルター<br><small>対応：EP-EV65</small></td><td>36ヶ月（約1ヶ月に1回以上、お手入れが必要です）のご使用を目安に交換</td><td><span class="verdict v-ok">可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-ev65_b.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EPF-EV65KF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">EP-DV1000-002</th><td>日立</td><td>プレフィルター</td><td>プレフィルター<br><small>対応：EP-EV65</small></td><td><span class="na">未確認</span></td><td><span class="verdict v-ok">可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-ev65_b.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EP-DV1000-002/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">EPF-KVG900KF</th><td>日立</td><td>加湿</td><td>フィルター（カシツフィルター）<br><small>対応：EP-KVG900</small></td><td>約120ヶ月（約1ヶ月に1回以上、お手入れが必要です）</td><td><span class="verdict v-ok">可</span></td><td>¥2,750</td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-mvg90_h.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EPF-KVG900KF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">EPF-KVG900D</th><td>日立</td><td>脱臭</td><td>フィルター（ダッシュウフィルター）<br><small>対応：EP-KVG900</small></td><td>約10年（JEM1467）</td><td><span class="na">—</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-kvg900_c.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EPF-KVG900D/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">EP-KVG900-042</th><td>日立</td><td>プレフィルター</td><td>プレフィルター<br><small>対応：EP-KVG900</small></td><td><span class="na">未確認</span></td><td><span class="verdict v-ok">可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-kvg900_c.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EP-KVG900-042/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">EP-KVG900-039</th><td>日立</td><td>プレフィルター</td><td>水タンクフィルター<br><small>対応：EP-KVG900</small></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/support/airclean/item/docs/ep-kvg900_c.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EP-KVG900-039/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">EPF-MVG90H</th><td>日立</td><td>集じん</td><td>フィルター（シュウジンフィルター）／アレルオフ微細じんHEPAフィルター<br><small>対応：EP-MVG90（EP-MVG110／EP-MVG70 は同系統だが型番未確認）</small></td><td>使用期間の目安:約10年</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/airclean/lineup/ep-mvg110/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EPF-MVG90H/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">EPF-HZ30F</th><td>日立</td><td>集じん</td><td>フィルター（アレルオフフィルター）<br><small>対応：EP-HZ30 系（公式列挙は未確認）</small></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/airclean/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EPF-HZ30F/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">EPF-PZ30F</th><td>日立</td><td>集じん</td><td>フィルター（アレルオフフィルター）<br><small>対応：EP-PZ30 系（公式列挙は未確認）</small></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://kadenfan.hitachi.co.jp/airclean/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/EPF-PZ30F/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLS-S20B</th><td>アイリスオーヤマ</td><td>脱臭</td><td>空気清浄機 10畳 脱臭フィルター<br><small>対応：AAP-S20B、AAP-SH20A、他</small></td><td>約2年に1回</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/air-cleaner-dust-collecting-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLS-S20B/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLS-S202</th><td>アイリスオーヤマ</td><td>脱臭</td><td>空気清浄機 10畳 脱臭フィルター<br><small>対応：KAP-S202、KAP-SH201、他</small></td><td>約2年に1回</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/air-cleaner-dust-collecting-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLS-S202/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLS-S302</th><td>アイリスオーヤマ</td><td>脱臭</td><td>空気清浄機 16畳 脱臭フィルター<br><small>対応：KAP-S302、KAP-SH301、他</small></td><td>約2年に1回</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/air-cleaner-dust-collecting-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLS-S302/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLS-S30B</th><td>アイリスオーヤマ</td><td>脱臭</td><td>空気清浄機 16畳 脱臭フィルター<br><small>対応：AAP-S30B、AAP-SH30A、他</small></td><td>約2年に1回</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/air-cleaner-dust-collecting-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLS-S30B/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLS-T50A</th><td>アイリスオーヤマ</td><td>集じん脱臭一体</td><td>空気清浄機 薄型24畳 別売フィルター<br><small>対応：AAP-T50A、他</small></td><td>約3年に1回</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/air-cleaner-dust-collecting-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLS-T50A/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLS-S60B</th><td>アイリスオーヤマ</td><td>集じん脱臭一体</td><td>空気清浄機 円柱型30畳 別売フィルター<br><small>対応：AAP-S60B、他</small></td><td>約3年に1回</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/air-cleaner-dust-collecting-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLS-S60B/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">PMAC-100HF</th><td>アイリスオーヤマ</td><td>集じん</td><td>空気清浄機 集塵フィルター<br><small>対応：PMAC-100、PMAC-100-S、MSAP-AC100、RMDK-40、PMMS-AC100</small></td><td>開封後、約2年が目安となります</td><td><span class="verdict v-bad">不可</span></td><td>¥2,110</td><td class="nw"><a href="https://www.irisplaza.co.jp/index.php?KB=SHOSAI&SID=H249584" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/PMAC-100HF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">PMMS-DCHF</th><td>アイリスオーヤマ</td><td>集じん</td><td>集塵フィルター（HEPAフィルター）<br><small>対応：PMMS-DC100</small></td><td>未確認（フィルター交換サインは標準環境で約2年で点灯）</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/PMMS-DCHF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">PMMS-DCTF</th><td>アイリスオーヤマ</td><td>脱臭</td><td>特殊加工活性炭フィルター<br><small>対応：PMMS-DC100</small></td><td><span class="na">未確認</span></td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/PMMS-DCTF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IA-300TF</th><td>アイリスオーヤマ</td><td>脱臭</td><td>特殊加工活性炭フィルター（たばこ臭用）<br><small>対応：PMMS-AC100</small></td><td><span class="na">未確認</span></td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IA-300TF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IA-300PF</th><td>アイリスオーヤマ</td><td>脱臭</td><td>特殊加工活性炭フィルター（ペット臭用）<br><small>対応：PMMS-AC100</small></td><td><span class="na">未確認</span></td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IA-300PF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IA-300GF</th><td>アイリスオーヤマ</td><td>脱臭</td><td>特殊加工活性炭フィルター（玄関・家庭臭用）<br><small>対応：PMMS-AC100</small></td><td><span class="na">未確認</span></td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IA-300GF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IAP-A25FL</th><td>アイリスオーヤマ</td><td>集じん脱臭一体</td><td>空気清浄機フィルター10畳<br><small>対応：IAP-A25</small></td><td>約1年（使用開始後）</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IAP-A25FL/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IAP-A35FL</th><td>アイリスオーヤマ</td><td>集じん脱臭一体</td><td>空気清浄機フィルター16畳<br><small>対応：IAP-A35</small></td><td>約1年（使用開始後）</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IAP-A35FL/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IAP-A85FL</th><td>アイリスオーヤマ</td><td>集じん脱臭一体</td><td>空気清浄機フィルター28畳<br><small>対応：IAP-A85</small></td><td>約1.5年（使用開始後）</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IAP-A85FL/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IAP-A100FL</th><td>アイリスオーヤマ</td><td>集じん脱臭一体</td><td>空気清浄機フィルター36畳<br><small>対応：IAP-A100</small></td><td>約3年（使用開始後）</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IAP-A100FL/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IAP-A110FL</th><td>アイリスオーヤマ</td><td>集じん脱臭一体</td><td>空気清浄機フィルター45畳<br><small>対応：IAP-A110</small></td><td>約3年（使用開始後）</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/manual/pdf/268526.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IAP-A110FL/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLS-AH50A</th><td>アイリスオーヤマ</td><td>集じん</td><td>加湿空気清浄機 23畳 集じんフィルター<br><small>対応：AAP-AH50A、KAP-AH501</small></td><td>約3年に1回（使いかた、設置場所により異なります。気になる場合は交換してください）</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-dust-collector-filter/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLS-AH50A/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLD-AH50A</th><td>アイリスオーヤマ</td><td>脱臭</td><td>加湿空気清浄機 脱臭フィルター<br><small>対応：AAP-AH50A、KAP-AH501</small></td><td>約10年に1回（使いかた、設置場所により異なります。気になる場合は交換してください）</td><td><span class="verdict v-bad">不可</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidifiedair-cleaner-dust-collecting-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLD-AH50A/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLH-AH50A</th><td>アイリスオーヤマ</td><td>加湿</td><td>加湿空気清浄機 23畳 加湿フィルター<br><small>対応：AAP-AH50A、KAP-AH501</small></td><td>約2年に1回（1日8時間運転で定期的なお手入れをした場合）</td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-humidification-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLH-AH50A/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLH-SH30</th><td>アイリスオーヤマ</td><td>加湿</td><td>加湿空気清浄機 16畳 加湿フィルター<br><small>対応：AAP-SH30A、KAP-SH301、他</small></td><td>約2年に1回（フィルターの交換時期の目安は、水質やご使用状況によって異なります）</td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-humidification-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLH-SH30/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">FLH-SH20</th><td>アイリスオーヤマ</td><td>加湿</td><td>加湿空気清浄機 10畳 加湿フィルター<br><small>対応：AAP-SH20A、KAP-SH201、他</small></td><td>約2年に1回</td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-humidification-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/FLH-SH20/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">RHF-401HF</th><td>アイリスオーヤマ</td><td>集じん</td><td>加湿空気清浄機集塵フィルター<br><small>対応：HXF-B40</small></td><td>約2年（使用開始後）</td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-humidification-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/RHF-401HF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">RHF-401TF</th><td>アイリスオーヤマ</td><td>脱臭</td><td>加湿空気清浄機活性炭フィルター<br><small>対応：HXF-B40</small></td><td>約2年（使用開始後）</td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-activated-carbon-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/RHF-401TF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">HXF-A25HF</th><td>アイリスオーヤマ</td><td>集じん</td><td>加湿空気清浄機集塵フィルター<br><small>対応：HXF-A25</small></td><td>約2年（使用開始後）</td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-activated-carbon-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/HXF-A25HF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">HXF-A25TF</th><td>アイリスオーヤマ</td><td>脱臭</td><td>加湿空気清浄機活性炭フィルター<br><small>対応：HXF-A25</small></td><td>約2年（使用開始後）</td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/seasonal-appliances/aircleaner/air-cleaner-filter/humidified-air-cleaner-activated-carbon-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/HXF-A25TF/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IAP-A130HTHFL</th><td>アイリスオーヤマ</td><td>集じん脱臭一体</td><td>大型空気清浄機集じん脱臭フィルター<br><small>対応：IAP-A130HTH</small></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/large-appliances/for-business/air-cleaner/large-air-cleaner-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IAP-A130HTHFL/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IAP-A150HFL</th><td>アイリスオーヤマ</td><td>集じん脱臭一体</td><td>大型空気清浄機集じん脱臭フィルター<br><small>対応：IAP-A150H</small></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/large-appliances/for-business/air-cleaner/large-air-cleaner-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IAP-A150HFL/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+        <tr><th scope="row">IAP-A150HTHFL</th><td>アイリスオーヤマ</td><td>集じん脱臭一体</td><td>大型空気清浄機集じん脱臭フィルター<br><small>対応：IAP-A150HTH</small></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td><span class="na">未確認</span></td><td class="nw"><a href="https://www.irisohyama.co.jp/products/electrical-appliances/large-appliances/for-business/air-cleaner/large-air-cleaner-filter" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://search.rakuten.co.jp/search/mall/IAP-A150HTHFL/" rel="sponsored nofollow noopener" target="_blank">楽天で探す</a></td></tr>
+      </tbody></table></div></section>
+<section><h2>ほかのページ</h2><div class="toc"><ul><li><a href="/air-filter/">型番から引く（トップ）</a></li><li><a href="/air-filter/sharp.html">シャープ</a></li><li><a href="/air-filter/panasonic-daikin.html">パナソニック・ダイキン</a></li><li><a href="/air-filter/balmuda-blueair.html">バルミューダ・ブルーエア</a></li><li><a href="/air-filter/wash.html">洗っていいのか</a></li><li><a href="/air-filter/cost.html">1年あたりいくらかかるか</a></li></ul></div></section>
+<footer>
+  <p>このページの型番・適合・価格・注意文は、すべてメーカーの公式サイト・公式ストア・公式の取扱説明書／カタログの記載に基づいています。各項目の出典リンクから原文を確認できます。<b>公式に書かれていないことは書いていません。</b>確認できなかったものは「未確認」と書いています。</p>
+  <p>型番・価格・取り扱いは変わることがあります。買う前に、お使いの機種の取扱説明書とメーカー公式ページで最終確認してください。このサイトはメーカーとは関係のない個人の調べ物です。</p>
+  <p><a href="/air-filter/">トップに戻る</a></p>
+</footer>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c30670a5b24743c69ba156eeb805ce50"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
